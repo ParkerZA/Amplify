@@ -8,8 +8,7 @@ Amplify.configure(awsconfig);
 
 function App() {
 
-  const username = 'test@test.co.za';
-  const password = 'Beach101#';
+
   let auth;
 
   async function SignIn() {
@@ -27,13 +26,13 @@ function App() {
   const url = 'https://cors-anywhere.herokuapp.com/https://sfi7qk8j17.execute-api.eu-west-1.amazonaws.com/Prod/api/timemeta/hierarchy/yearname'
 
   async function getData() {
-    const data = await axios.get(url, {
+    const response = await axios.get(url, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: auth
       },
     });
-    return data.data;
+    return response.data;
   }
 
   SignIn();
