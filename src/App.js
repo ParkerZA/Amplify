@@ -22,27 +22,23 @@ function App() {
       console.log('error signing in', error);
     }
   }
+  const response = await axios.get(url, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: auth
+    },
+  });
+  return response.data;
+}
 
-  const url = 'https://cors-anywhere.herokuapp.com/https://sfi7qk8j17.execute-api.eu-west-1.amazonaws.com/Prod/api/timemeta/hierarchy/yearname'
-
-  async function getData() {
-    const response = await axios.get(url, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: auth
-      },
-    });
-    return response.data;
-  }
-
-  SignIn();
+SignIn();
 
 
-  return (
-    <div className="App">
+return (
+  <div className="App">
 
-    </div>
-  );
+  </div>
+);
 }
 
 export default App;
